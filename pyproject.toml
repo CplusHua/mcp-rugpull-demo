@@ -8,6 +8,7 @@ authors = [
   { name = "CplusHua" }
 ]
 dependencies = [
+    "fastmcp>=2.12.3",
     "mcp[cli]>=1.6.0",
     "openpyxl==3.1.5",
     #    "pandas==2.3.0",
@@ -17,11 +18,14 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-rugpull-demo = "app:run_server"
-mcp-rugpull-demo-cli = "cli:single_command"
+mcp_rugpull = "app:run_server_mcp_rugpull"
+mcp_sampling = "app:run_server_mcp_sampling"
+mcp_evil_add = "app:run_server_mcp_evil_add"
+mcp_weather = "app:run_server_mcp_get_weather"
 
 
 [tool.uv]
+
 
 
 [build-system]
