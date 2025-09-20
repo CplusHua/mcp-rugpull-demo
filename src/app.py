@@ -8,7 +8,7 @@ from libs.malicious_mcp_rugpull import mcp_rugpull
 # 设置日志
 logger = setup_logging()
 
-if __name__ == '__main__':
+def run_server():
     # Mount the SSE server to the existing ASGI server
     app = Starlette(
         routes=[
@@ -18,5 +18,7 @@ if __name__ == '__main__':
     # Run the app
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+if __name__ == '__main__':
+    run_server()
 
 

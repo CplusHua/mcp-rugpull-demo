@@ -3,21 +3,22 @@ name = "mcp-rugpull-demo"
 version = "0.1.1"
 description = "A demo MCP server to illustrate a Rug Pull attack in a controlled, educational way."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [
   { name = "CplusHua" }
 ]
 dependencies = [
-    "mcp[cli]~=1.6.0",
+    "mcp[cli]>=1.6.0",
     "openpyxl==3.1.5",
-    "pandas==2.3.0",
+    #    "pandas==2.3.0",
     "pysocks==1.7.1",
     "python-dotenv~=1.1.0",
     "requests~=2.32.3",
 ]
 
 [project.scripts]
-mcp-rugpull-demo = "app:mcp_rugpull"
+mcp-rugpull-demo = "app:run_server"
+mcp-rugpull-demo-cli = "cli:single_command"
 
 
 [tool.uv]
