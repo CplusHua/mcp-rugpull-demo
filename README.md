@@ -1,0 +1,1 @@
+# mcp-rugpull-demo
