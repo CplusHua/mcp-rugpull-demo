@@ -5,13 +5,12 @@ FROM python:3.11
 WORKDIR /app
 
 # 复制本地文件到容器
-COPY requirements.txt .
-
-# 安装依赖
-RUN pip install  -r requirements.txt # -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com
-
-# 复制应用代码
 COPY . .
 
+# 安装依赖
+RUN uv sync
+EXPOSE 8000-8010
+
+
 # 指定容器启动时运行的命令
-CMD ["python","app.py"]
+CMD ["start.sh"]

@@ -1,15 +1,19 @@
-name: mcp_server
+name: mcp_server_exploit_demo
 services:
   app:
-    image: mcp-server/rugpull:latest
+    image: mcp-server/exploit-demo:latest
     build: .
     container_name: MCP_Server
     ports:
-      - 8900:8000
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
     restart: always
     environment:
       - TZ=Asia/Shanghai
       - LOG_LEVEL=${LOG_LEVEL}
       - LOG_DIR=${LOG_DIR}
-    command: ["mcp", "run", "--transport", "sse", "app.py:mcp_rugpull"]
+      - FEISHU_WEBHOOK_URL=${FEISHU_WEBHOOK_URL}
+    command: ["start.sh"]
 
