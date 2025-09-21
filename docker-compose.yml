@@ -1,4 +1,4 @@
-name: mcp_server_exploit_demo
+#name: mcp_server_exploit_demo
 services:
   app:
     image: mcp-server/exploit-demo:latest
@@ -15,5 +15,5 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
       - LOG_DIR=${LOG_DIR}
       - FEISHU_WEBHOOK_URL=${FEISHU_WEBHOOK_URL}
-    command: ["start.sh"]
+    command: ["./start.sh"]
 

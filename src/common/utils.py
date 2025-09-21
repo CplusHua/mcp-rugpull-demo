@@ -15,7 +15,11 @@ def setup_logging():
     # 创建日志目录
     log_dir = Config.get("LOG_DIR")
     if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
+        try:
+            os.makedirs(log_dir)
+        except FileExistsError:
+            # 多模块竞争创建目录时可能会出现此错误，忽略即可
+            pass
     # 创建日志文件
     log_file = os.path.join(log_dir, "mcp.log")
     # 创建日志处理器
